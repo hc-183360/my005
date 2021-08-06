@@ -1,0 +1,33 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /licai
+
+spring:
+  application:
+    name: micr-web
+  thymeleaf:
+    cache: false
+  redis:
+    host: localhost
+    port: 6379
+
+dubbo:
+  registry:
+    address: zookeeper://localhost:2181
+  scan:
+    base-packages: com.bjpowernode.web
+  consumer:
+    check: false
+    timeout: 5000
+    retries: 0
+
+#短信的接口
+jdwx:
+  sms:
+    url: https://way.jd.com/chuangxin/dxjk
+    content: 【创信】你的验证码是：%s，3分钟内有效！
+    appkey: 3680fa919b771148da626bbcbd459475
+  realname:
+    url: https://way.jd.com/hl/idcheck
+    appkey: 3680fa919b771148da626bbcbd459475
